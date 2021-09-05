@@ -1,0 +1,27 @@
+{
+  "name": "hnm",
+  "version": "1.0.0",
+  "description": "Remove the node_module and reinstall your npm packages in an easy way",
+  "main": "index.js",
+  "bin": {
+    "hnm": "src/bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuisFuenTech/node-module-handler"
+  },
+  "bugs": "https://github.com/LuisFuenTech/node-module-handler/issues",
+  "keywords": [
+    "cli",
+    "javascript",
+    "npm",
+    "tools",
+    "nodejs"
+  ],
+  "author": "Luis Fuentes <luisfuentes.au@gmail.com> (https://github.com/LuisFuenTech)",
+  "license": "MIT",
+  "dependencies": {}
+}
