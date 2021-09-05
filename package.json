@@ -23,5 +23,8 @@
   ],
   "author": "Luis Fuentes <luisfuentes.au@gmail.com> (https://github.com/LuisFuenTech)",
   "license": "MIT",
-  "dependencies": {}
+  "files": [
+    "bin/",
+    "src/"
+  ]
 }
