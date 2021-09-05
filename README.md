@@ -27,18 +27,18 @@ $ npm i -g hnm
 Or use with `npx`
 
 ```bash
-$ npx hnm --remove[-r, --install, -i] [options]
+$ npx hnm remove[r, install, i] [options]
 ```
 
 ## Example
 
 # Commands
 
-Usage: `hnm command [options]`
+Usage: hnm \<command\> [args]
 
-- `--remove` or `-r`: Remove package-lock.json and node_modules
-- `--install [options]` or `-i [options]`: Clean dependencies and install them from package.json"
-  - `[options]`: Options for npm install
+- `remove` or `r`: Remove package-lock.json and node_modules
+- `install [args]` or `i [args]`: Clean dependencies and install them from package.json"
+  - `[args]`: Options for npm install
 
 # License
 
