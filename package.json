@@ -4,7 +4,7 @@
   "description": "Remove the node_module and reinstall your npm packages in an easy way",
   "main": "index.js",
   "bin": {
-    "hnm": "./src/bin/index.js"
+    "hnm": "src/bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
