@@ -8,7 +8,9 @@ function cli(...args) {
     )}`
   );
 
-  script.stdout.on("data", (message) => console.log(message));
+  script.stdout.on("data", (message) => {
+    process.stdout.write(message);
+  });
 }
 
 module.exports = {

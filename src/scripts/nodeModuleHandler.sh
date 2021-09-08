@@ -22,9 +22,9 @@ COMMAND_MAN="
 Usage: handleModules <command>
 
 Commands:
---remove, -r    
+remove, r    
     remove package-lock and node_modules 
---install, -i   [options]   
+install, i   [options]   
     clean dependencies and install them from package.json"
 
 # Flags
@@ -81,7 +81,7 @@ function installNpmModules() {
         echo "\033[0;32m$(date +"%Y-%m-%d %T") Installing NPM dependencies...⚙️" && sleep 0.5
 
         if [[ $IS_INSTALL_OPTIONAL == true ]]; then
-            npm i $ENTRY_OPTIONAL_COMMAND || NPM_ERROR=true
+            (npm i $ENTRY_OPTIONAL_COMMAND | 2>&1) || NPM_ERROR=true
         else
             npm i || NPM_ERROR=true
         fi
