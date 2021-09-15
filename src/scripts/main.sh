@@ -29,7 +29,7 @@ install, i   [options]
 ACTION_FLAG=false
 IS_INSTALL_OPTIONAL=false
 
-source "src/scripts/functions.sh"
+source "./src/scripts/functions.sh"
 
 if [[ -z $@ ]] || [[ $# -eq 0 ]]; then
     printf "\033[0;31mEmpty arguments\033[0m\n"
