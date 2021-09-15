@@ -70,7 +70,7 @@ function removeNpmModules() {
 
     if [[ -f $PACKAGE_LOCK ]]; then
         ACTION_FLAG=true
-        printWithColor "$(date +"%Y-%m-%d %T") Removing '$PACKAGE_LOCK' file...⚙️n" "green" && sleep 0.5
+        printWithColor "$(date +"%Y-%m-%d %T") Removing '$PACKAGE_LOCK' file...⚙️\n" "green" && sleep 0.5
         rm $PACKAGE_LOCK || ERROR=true
         checkError
 
