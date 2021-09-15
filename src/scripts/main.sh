@@ -100,9 +100,9 @@ function installNpmModules() {
         printWithColor "$(date +"%Y-%m-%d %T") Installing NPM dependencies...⚙️\n" "green" && sleep 0.5
 
         if [[ $IS_INSTALL_OPTIONAL == true ]]; then
-            npm i $ENTRY_OPTIONAL_COMMAND --save 2>&1 >printf || NPM_ERROR=true
+            npm i $ENTRY_OPTIONAL_COMMAND --save || NPM_ERROR=true
         else
-            npm i --save 2>&1 >printf || NPM_ERROR=true
+            npm i --save || NPM_ERROR=true
         fi
 
         checkError
