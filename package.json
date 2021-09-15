@@ -15,9 +15,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LuisFuenTech/node-module-garbage-cleaner"
+    "url": "git+https://github.com/LuisFuenTech/nmgc"
   },
-  "bugs": "https://github.com/LuisFuenTech/node-module-garbage-cleaner/issues",
+  "bugs": "https://github.com/LuisFuenTech/nmgc/issues",
   "keywords": [
     "cli",
     "javascript",
