@@ -8,7 +8,9 @@
   },
   "files": [
     "bin/",
-    "src/"
+    "src/",
+    "scripts/",
+    "src/scripts"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
