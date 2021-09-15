@@ -1,4 +1,4 @@
-# Node Modules Garbage Remover
+# Node Modules Garbage Cleaner
 
 This module allows you to remove `package-lock.json` and `node_modules` from your project. Also you has a clean installation of your npm packages.
 
