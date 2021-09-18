@@ -34,11 +34,18 @@ $ npx nmgc remove[r, install, i] [options]
 
 # Commands
 
-Usage: nmgc \<command\> [args]
+```bash
+USAGE:
+    nmgc <COMMAND> [OPTIONS]
 
-- `remove` or `r`: Remove package-lock.json and node_modules
-- `install [args]` or `i [args]`: Clean dependencies and install them from package.json"
-  - `[args]`: Options for npm install
+COMMAND
+    h, help     show general help
+    r, remove   remove package-lock and node_modules
+    i, install  clean dependencies and install them from package.json
+
+OPTIONS:
+    -f, --force  force the npm installation
+```
 
 # License
 
