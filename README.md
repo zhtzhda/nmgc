@@ -27,10 +27,8 @@ $ npm i -g nmgc
 Or use with `npx`
 
 ```bash
-$ npx nmgc remove[r, install, i] [options]
+$ npx nmgc <COMMAND> [OPTIONS]
 ```
-
-## Example
 
 # Commands
 
