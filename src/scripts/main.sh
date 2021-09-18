@@ -15,21 +15,21 @@ PACKAGE="package.json"
 NODE_MODULES="node_modules"
 
 # Commands
-ENTRY_COMMAND="$1"
-ENTRY_OPTIONAL_COMMAND="$2"
-REMOVE_COMMAND="remove"
-REMOVE_SHORT_COMMAND="r"
-INSTALL_COMMAND="install"
-INSTALL_SHORT_COMMAND="i"
+COMMAND="$1"
+OPTION="$2"
 
 COMMAND_MAN="
-Usage: handleModules <command>
+USAGE: 
+    nmgc <COMMAND> [OPTIONS]
 
-Commands:
-remove, r    
-    remove package-lock and node_modules 
-install, i   [options]   
-    clean dependencies and install them from package.json"
+COMMAND
+    h, help     show general help
+    r, remove   remove package-lock and node_modules
+    i, install  clean dependencies and install them from package.json  
+
+OPTIONS:
+    -f, --force  force the npm installation
+"
 
 # Flags
 ACTION_FLAG=false
@@ -52,12 +52,12 @@ function printWithColor() {
 
 function checkError() {
     if [[ $ERROR == true ]]; then
-        printf "\033[0;31m[Error]: Script couldn't run successfully 💥\033[0m\n"
+        printWithColor "[Error]: Script couldn't run successfully 💥\n" "red"
         exit 1
     fi
 
     if [ $NPM_ERROR == true ]; then
-        printf "\033[0;31m[npm Error]: We cannot install NPM dependencies 💥\033[0m\n"
+        printWithColor "[npm Error]: We cannot install NPM dependencies 💥\n" "red"
         exit 1
     fi
 }
@@ -100,7 +100,7 @@ function installNpmModules() {
         printWithColor "$(date +"%Y-%m-%d %T") Installing NPM dependencies...⚙️\n" "green" && sleep 0.5
 
         if [[ $IS_INSTALL_OPTIONAL == true ]]; then
-            npm i $ENTRY_OPTIONAL_COMMAND --save || NPM_ERROR=true
+            npm i $OPTION --save || NPM_ERROR=true
         else
             npm i --save || NPM_ERROR=true
         fi
@@ -114,25 +114,30 @@ function installNpmModules() {
 }
 
 if [[ -z $@ ]] || [[ $# -eq 0 ]]; then
-    printf "\033[0;31mEmpty arguments\033[0m\n"
-    printf "\033[0;36m$COMMAND_MAN\033[0m\n"
+    printWithColor "Empty arguments\n" "red"
+    printWithColor "$COMMAND_MAN\n" "cyan"
     exit 1
 fi
 
-if [[ -n $ENTRY_OPTIONAL_COMMAND ]]; then
+if [[ $COMMAND == "help" ]] || [[ $COMMAND == "h" ]]; then
+    printWithColor "$COMMAND_MAN\n" "cyan"
+    exit 1
+fi
+
+if [[ -n $OPTION ]]; then
     IS_INSTALL_OPTIONAL=true
 fi
 
-if [[ $ENTRY_COMMAND == $REMOVE_COMMAND ]] || [[ $ENTRY_COMMAND == $REMOVE_SHORT_COMMAND ]]; then
+if [[ $COMMAND == "remove" ]] || [[ $COMMAND == "r" ]]; then
     removeNpmModules
 elif
-    [[ $ENTRY_COMMAND == $INSTALL_COMMAND ]] || [[ $ENTRY_COMMAND == $INSTALL_SHORT_COMMAND ]]
+    [[ $COMMAND == "install" ]] || [[ $COMMAND == "i" ]]
 then
     removeNpmModules
     installNpmModules
 else
-    printf "\033[0;31mThe command '$ENTRY_COMMAND' isn't correct ❌\033[0m\n"
-    printf "\033[0;36m$COMMAND_MAN\033[0m\n"
+    printWithColor "The command '$COMMAND' isn't correct ❌\n" "red"
+    printWithColor "$COMMAND_MAN\n" "cyan"
 fi
 
 exit 1
